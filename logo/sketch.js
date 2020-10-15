@@ -9,8 +9,8 @@
 function setup() {
     createCanvas(640, 360);
     var p = color ('aqua');
-    console.log(p);
-    canvas.drawingContext.miterLimit = 2;
+   // console.log(p);
+  //  canvas.drawingContext.miterLimit = 2;
 }
 
 function draw() {
@@ -24,7 +24,7 @@ function draw() {
     fill(255);
     stroke('black');
     strokeWeight(5);
-    textFont('impact');
+    textFont('baskerville');
 
     textAlign(CENTER);
 
@@ -40,7 +40,7 @@ function draw() {
     fill(255);
     stroke('black');
     strokeWeight(5);
-    textFont('impact');
+    textFont('baskerville');
 
     textAlign(CENTER);
 
