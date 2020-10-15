@@ -1,7 +1,9 @@
 
 function preload() {
     var catImage
-    catImage = loadImage ('thinking.jpg')
+    var catPic
+   catImage = loadImage ('thinking.jpg')
+   catPic = loadImage ('smugcat.jpg')
 }
 
 function setup() {
@@ -12,18 +14,36 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background('pink');
 
     image(catImage, 100,100);
+    stroke(0);
+    strokeWeight(2)
 
-
-    textSize(100);
+    textSize(80);
     fill('aqua');
     stroke(255);
-    strokeWeight(10);
-    textFont('baskerville');
+    strokeWeight(5);
+    textFont('impact');
 
     textAlign(CENTER);
 
-    text('Cat', width / 2, height / 2);
+    text('Cat', width / 2, height / 5);
+
+    if (keyIsPressed === true) {
+    image(catImage, 100,100);
+    stroke(0);
+    strokeWeight(2)
+
+    textSize(80);
+    fill('aqua');
+    stroke(255);
+    strokeWeight(5);
+    textFont('impact');
+
+    textAlign(CENTER);
+
+    text('Cat', width / 2, height / 5);
+  } else {
+  }
 }
