@@ -28,11 +28,6 @@ function draw() {
     textAlign(CENTER, TOP);
 
     text("When you're thinking about what you should have for dinner...", width / 2, height / 6);
-
-  stroke(50);
-  fill(100);
-  ellipse(x, y, 24, 24);
-    
         if (keyIsPressed === true) {
     background('pink');
 
