@@ -2,7 +2,7 @@
    var catPic
 function preload() {
   catImage = loadImage ('thinking.jpg')
-  catPic = loadImage ('smugcat.jpg')
+  catPic = loadImage ('smugcat.JPG')
 }
 
 function setup() {
