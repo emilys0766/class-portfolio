@@ -1,5 +1,6 @@
-  var catImage
+   var catImage
    var catPic
+   var s = 500
 function preload() {
   catImage = loadImage ('thinking.jpg')
   catPic = loadImage ('smugcat.JPG')
@@ -14,7 +15,13 @@ function setup() {
 
 function draw() {
     background('pink');
-    image(catImage, 0,0,width,height);
+    image(catImage, width-s, height-s);
+    s += 2;
+
+    if (catImage.width > canvas.width) {
+        s -= 2
+    }
+
 
     stroke(0);
     strokeWeight(2)
