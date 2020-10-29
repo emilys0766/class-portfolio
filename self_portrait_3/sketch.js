@@ -60,17 +60,12 @@ let eyebrows = 250
            }
 
            if (mouseX <= 250) {
-            eyes = 350
+            eyes = 370
+            } else if (mouseX >= 450) {
+              eyes = 390
             } else {
               eyes = 380
             }
-
-           if (mouseX >= 450) {
-              eyes = 410
-            } else {
-              eyes = 380
-           }
-
         }
 
      
