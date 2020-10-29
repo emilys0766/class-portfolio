@@ -53,8 +53,18 @@ let eyebrows = 250
            triangle(175, y - 50, 325, y - 175, 325, y - 110);
            triangle(475, y - 50, 325, y - 175, 325, y - 110);
    
-           if (mouseY > 100) {
+           if (mouseY > 150) {
             eyebrows = 225
+           }
+
+           if (mouseX <= 250) {
+            eyes = 350
+            }
+            else if (mouseX >= 450) {
+              eyes = 410
+            }
+              else {
+              eyes = 380
            }
 
         }
