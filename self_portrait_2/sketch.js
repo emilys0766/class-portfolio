@@ -29,8 +29,8 @@ let y = 250;
             ellipse(270, y -50, 50, 25);
    //eyebrows
            fill ("brown")
-           triangle(235, y -70, 305, 170, 305, 180);
-           triangle(415, y -70, 345, 170, 345, 180);
+           triangle(235, y -70, 305, y-80, 305, y-70);
+           triangle(415, y -70, 345, y-80, 345, y-70);
    //pupils
             fill ('brown')
             ellipse(380, y - 50, PupilDiameter);
