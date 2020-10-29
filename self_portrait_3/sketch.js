@@ -53,7 +53,7 @@ let eyebrows = 250
            triangle(175, y - 50, 325, y - 175, 325, y - 110);
            triangle(475, y - 50, 325, y - 175, 325, y - 110);
    
-           if (mouseY > 150) {
+           if (mouseY < 150) {
             eyebrows = 235
            } else {
             eyebrows = 250
