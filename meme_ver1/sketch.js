@@ -28,22 +28,4 @@ function draw() {
     textAlign(CENTER, TOP);
 
     text("When you're thinking about what you should have for dinner...", width / 2, height / 6);
-        if (keyIsPressed === true) {
-    background('pink');
-
-    image(catPic, 0,0,width,height);
-    stroke(0);
-    strokeWeight(2)
-
-    textSize(20);
-    fill(255);
-    stroke('black');
-    strokeWeight(5);
-    textFont('impact');
-
-    textAlign(CENTER, TOP);
-
-    text("And you see the snack drawer is open...", width / 2, height / 6);
-  } else {
-  }
 }
