@@ -53,7 +53,10 @@ function draw() {
     textAlign(CENTER, TOP);
 
     text("And you see the snack drawer is open...", width / 2, height / 6);
-    catMeow.Play()
   } else {
   }
+}
+
+function keyPressed() {
+  catMeow.play();
 }
