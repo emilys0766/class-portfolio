@@ -5,7 +5,7 @@
 function preload() {
   catImage = loadImage ('thinking.jpg')
   catPic = loadImage ('smugcat.JPG')
-  catMeow = loadSound('')
+  catMeow = loadSound('meow.wav')
 }
 
 function setup() {
@@ -53,6 +53,7 @@ function draw() {
     textAlign(CENTER, TOP);
 
     text("And you see the snack drawer is open...", width / 2, height / 6);
+    catMeow.Play()
   } else {
   }
 }
