@@ -1,6 +1,6 @@
    var catImage
    var catPic
-   var s = 500
+   var s = 2
 function preload() {
   catImage = loadImage ('thinking.jpg')
   catPic = loadImage ('smugcat.JPG')
