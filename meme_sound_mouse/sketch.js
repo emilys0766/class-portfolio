@@ -54,3 +54,7 @@ function draw() {
   } else {
   }
 }
+
+function keyPressed() {
+  catMeow.play();
+}
