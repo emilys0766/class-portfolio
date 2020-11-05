@@ -1,9 +1,11 @@
    var catImage
    var catPic
    var s = 500
+   var catMeow
 function preload() {
   catImage = loadImage ('thinking.jpg')
   catPic = loadImage ('smugcat.JPG')
+  catMeow = loadSound('meow.wav')
 }
 
 function setup() {
