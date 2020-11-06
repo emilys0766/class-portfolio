@@ -49,7 +49,6 @@ function draw() {
     stroke('black');
     strokeWeight(5);
     textFont('impact');
-
     textAlign(CENTER, TOP);
 
     text("And you see the snack drawer is open...", width / 2, height / 6);
@@ -57,6 +56,6 @@ function draw() {
   }
 }
 
-function keyPressed() {
+function mousePressed() {
   catMeow.play();
 }
