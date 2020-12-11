@@ -1,4 +1,4 @@
-    var cloud1;
+      var cloud1;
     var cloud2;
     var cloud3;
     
@@ -8,11 +8,13 @@
         function setup() {
             createCanvas(600, 500);
             
+          // player's starting width and height
             playerWidth = 30
             playerHeight = height - 69.85
-            platformHeight = height - 64.85
+          
+            platformHeight = height - 14.85
     
-            
+            // background color
             r = 0
             b = 170
             g = 255
@@ -23,35 +25,30 @@
         }
 
         function draw() {
+          
+          // no cursor + background color
             noCursor()
-            background(r, b, g) //(WOT)
+            background(r, b, g)
             
             // makes platforms with grass on it
             blocks(0, height - 30)
             blocks(99.9, height - 30)
             blocks(299.7, height - 30)
             blocks(499.8, height - 30)
-            
+          
             //displays spikes
             spikes(199.8, height)
-            
-            
+          
             //displays sun
             sun()
-            
-            //constrains user
-            
-             // var leftWall = 0;
-             // var rightWall = width;
              
-            
-            
+            // displays still clouds
             clouds(50)
             clouds(250)
             clouds(450)
             clouds(650)
             
-            //displays clouds
+            //displays clouds movement
             cloud1.move();
             cloud1.display();
             cloud2.move();
@@ -87,8 +84,8 @@
             textSize(25)
             fill(0)
             text("Player Lives: " + playerLives.length, 20, 20)
-            
-            // var playerConstrain = constrain(playerWidth, leftWall, rightWall)
+
+          
         }
         
          function sun() {
@@ -102,44 +99,45 @@
         }
         
         function player() {
-            //draws character
+          
+            //draws the character
             stroke("black")
             strokeWeight(1)
             fill(255)
             ellipse(playerWidth, playerHeight, 20, 20)
             rect(playerWidth-10, playerHeight+10, 20, 23.85)
                         
-            // left key = move left
+            // left key function
             if (keyIsDown(LEFT_ARROW)){
                 playerWidth -= 5
             }
             
-            //right key = move right
+            // right key function
             if (keyIsDown(RIGHT_ARROW)){
                 playerWidth += 5
             }
             
-            //if player reaches platforms and fails, they lose
-            
-            if (playerWidth >= 399.6 && playerWidth <= 499.7) {
-                playerHeight += 3
-            }
+            //once player reaches spikes, player will fall into them
             
             if (playerWidth >= 199.8 && playerWidth <= 299.7) {
                 playerHeight += 3
             }
-                
-            if (playerWidth >= 499.8) {
-               playerHeight = height - 64.85
-            }    
             
-                
-            if (playerHeight >= height-55.85 || playerWidth <= 0) {
+                // if player height is below the platform, then they lose a life and restart at the starting point
+            if (playerHeight >= height-55.85) {
                 playerLives.splice(0,1)
                 playerWidth = 30
                 playerHeight = height - 64.85
             }
-            
+          
+          // player will not be able to move out of the left side or max height
+            if (playerWidth < 0) {
+              playerWidth = 1
+              playerHeight = height - 64.85
+            }
+          
+          // "you lose" appears once player loses their lives
+          
             if (playerLives.length == 0) {
                 textSize(25)
                 fill(0)
@@ -147,6 +145,7 @@
                 noLoop();
             }
             
+          // if player reaches the width location of the flag, then they win
             if (playerWidth >= width-30) {
                 textSize(25)
                 fill(0)
@@ -154,14 +153,22 @@
                 noLoop();
             }
             
-                        //makes player able to move on top of mountain
+          // once player reaches the top of the mountain, their height is fixed to the mountain height
             if (playerWidth >= 499.7) {
                 playerHeight = (height/3)-50.5
             }
-            
-            //if player moves out to left of the screen they lose a point
-        
       }
+      
+        // jump function
+       function keyPressed() {
+         if (key == "w" || key == "W") {
+           playerHeight -= 200
+           maxJump.splice(0, 1)
+         }
+         else if (playerHeight > 200) {
+           playerHeight -= 3
+         }
+       }
       
       function blocks(w, h) {
             
@@ -223,7 +230,7 @@
         
         function platform() {
             
-            //creates platform
+            //creates moving platform
             stroke(251, 251, 216)
             fill(251, 251, 216)
             rect(399.6, platformHeight, 99.9, 30)
@@ -247,23 +254,10 @@
         }
         
         function spikes(spikeWidth, spikeHeight) {
-            
-            //creates spikes
             fill(0)
             stroke(0)
             triangle(spikeWidth, spikeHeight+1, spikeWidth+33.3, spikeHeight+1, spikeWidth+16.4, spikeHeight-24.85)
             triangle(spikeWidth+33.3, spikeHeight+1, spikeWidth+66.6, spikeHeight+1, spikeWidth+49.7, spikeHeight-24.85)
             triangle(spikeWidth+66.6, spikeHeight+1, spikeWidth+99.9, spikeHeight+1, spikeWidth+83, spikeHeight-24.85)
             
-        }
-      
-       function keyPressed() {
-         if (key == "w" || key == "W") {
-           playerHeight -= 200
-           maxJump.splice(0, 1)
-         }
-         if (maxJump.length == 0) {
-           playerHeight = height - 69.85
-           maxJump.push(0, 1)
-         }
        }
