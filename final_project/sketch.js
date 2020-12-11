@@ -1,7 +1,9 @@
-      var cloud1;
+// for moving clouds
+    var cloud1;
     var cloud2;
     var cloud3;
     
+// player lives + jumping max
     var playerLives = [5, 4, 3, 2, 1]
     var maxJump = [1]
     
@@ -11,10 +13,11 @@
           // player's starting width and height
             playerWidth = 30
             playerHeight = height - 69.85
-          
+    
+          // moving platform starting point
             platformHeight = height - 14.85
     
-            // background color
+          // background color
             r = 0
             b = 170
             g = 255
@@ -74,7 +77,7 @@
             
             fill(255, 0, 0)
             strokeWeight(2)
-            triangle(width-30, (height/3)-24, width-30, (height/3)-60, width-70, (height/3)-23.5)
+            triangle(width-30, (height/3)-24, width-30, (height/3)-60,                 width-70, (height/3)-23.5)
             
             //creates and makes player move
             player()
@@ -98,7 +101,7 @@
             
         }
         
-        function player() {
+                function player() {
           
             //draws the character
             stroke("black")
@@ -116,6 +119,12 @@
             if (keyIsDown(RIGHT_ARROW)){
                 playerWidth += 5
             }
+
+          // player will not be able to move out of the left side or max height
+            if (playerWidth < 0) {
+              playerWidth = 1
+              playerHeight = height - 64.85
+            }
             
             //once player reaches spikes, player will fall into them
             
@@ -123,17 +132,31 @@
                 playerHeight += 3
             }
             
-                // if player height is below the platform, then they lose a life and restart at the starting point
+                // if player height is below the dirt platform, then they lose a life and restart at the starting point
             if (playerHeight >= height-55.85) {
                 playerLives.splice(0,1)
                 playerWidth = 30
                 playerHeight = height - 64.85
             }
           
-          // player will not be able to move out of the left side or max height
-            if (playerWidth < 0) {
-              playerWidth = 1
-              playerHeight = height - 64.85
+            if (playerWidth >= 299.7 + 99.9 && playerWidth <= 499.8 && playerHeight == platformHeight) {
+            }
+            else if (playerHeight <= height - 69.85) {
+                playerHeight += 5
+            }
+
+                  
+            // if (playerWidth >= 299.7 + 99.9 && playerWidth <= 499.8 && playerHeight == platformHeight) {
+            //   playerHeight -= 30
+            // }
+            // else {
+            //   playerHeight += 3
+            // }
+            
+                  
+          // once player reaches the top of the mountain, their height is fixed to the mountain height
+            if (playerWidth >= 499.7) {
+                playerHeight = (height/3)-45.5
             }
           
           // "you lose" appears once player loses their lives
@@ -152,21 +175,13 @@
                     text("You Win!", (width/2)-50, height-250)
                 noLoop();
             }
-            
-          // once player reaches the top of the mountain, their height is fixed to the mountain height
-            if (playerWidth >= 499.7) {
-                playerHeight = (height/3)-50.5
-            }
       }
       
-        // jump function
+        // jump function (work in progess)
        function keyPressed() {
          if (key == "w" || key == "W") {
            playerHeight -= 200
            maxJump.splice(0, 1)
-         }
-         else if (playerHeight > 200) {
-           playerHeight -= 3
          }
        }
       
@@ -234,22 +249,11 @@
             stroke(251, 251, 216)
             fill(251, 251, 216)
             rect(399.6, platformHeight, 99.9, 30)
-            
-            //if platforms reach the top of screen, reset to default height
             platformHeight -= 5
-            
-            
-            //If player reaches platform, they ride on it. If they go off the platform, player glides down. (WOT)
-            
+          
+           //if platforms reach the top of screen, reset to default height
             if (platformHeight <= 0) {
                 platformHeight = height - 30
-            }
-            
-            if (playerWidth >= 299.7 + 99.9 && playerWidth <= 499.8 /* && playerHeight == platformHeight*/) {
-                playerHeight = platformHeight - 30
-            }
-            else if (playerHeight <= height - 69.85) {
-                playerHeight += 5
             }
         }
         
