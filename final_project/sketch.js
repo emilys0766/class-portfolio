@@ -5,7 +5,6 @@
     
 // player lives + jumping max
     var playerLives = [5, 4, 3, 2, 1]
-    var maxJump = [1]
     
         function setup() {
             createCanvas(600, 500);
@@ -139,19 +138,14 @@
                 playerHeight = height - 64.85
             }
           
-            if (playerWidth >= 299.7 + 99.9 && playerWidth <= 499.8 && playerHeight == platformHeight) {
-            }
-            else if (playerHeight <= height - 69.85) {
+                  
+          // not sure, but if removed jump function does not work
+            if (playerHeight <= height - 69.85) {
                 playerHeight += 5
             }
-
-                  
-            // if (playerWidth >= 299.7 + 99.9 && playerWidth <= 499.8 && playerHeight == platformHeight) {
-            //   playerHeight -= 30
-            // }
-            // else {
-            //   playerHeight += 3
-            // }
+            if (playerHeight <= height - 265.85) {
+                playerHeight += 200
+            }
             
                   
           // once player reaches the top of the mountain, their height is fixed to the mountain height
@@ -181,7 +175,6 @@
        function keyPressed() {
          if (key == "w" || key == "W") {
            playerHeight -= 200
-           maxJump.splice(0, 1)
          }
        }
       
