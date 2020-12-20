@@ -5,7 +5,7 @@ function setup() {
 function draw() {
   background(225);
   
-  for (ley x = 0; x < width; x+=100)
+  for (let x = 0; x < width; x+=100)
   
   fill('grey')
   rect(0, 100, 100, 400)
