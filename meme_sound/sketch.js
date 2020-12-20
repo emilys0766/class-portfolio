@@ -1,6 +1,6 @@
    var catImage
    var catPic
-   var s = 500
+   var s = 0
    var catMeow
 function preload() {
   catImage = loadImage ('thinking.jpg')
@@ -17,11 +17,11 @@ function setup() {
 
 function draw() {
     background('pink');
-    image(catImage, width-s, height-s);
-    s += 2;
+    image(catImage, 0, s, width, height);
+    s = s += 1;
 
-    if (catImage.width > canvas.width) {
-        s -= 2
+    if (s > height) {
+        s = 0;
     }
 
 
