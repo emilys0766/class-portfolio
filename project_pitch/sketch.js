@@ -10,6 +10,8 @@ var y = 700 - 50;
 var a = 20;
 var b = y;
 
+var platformStill;
+
 
 function preload() {
     platformStill = loadImage('project_idea.png');
