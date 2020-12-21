@@ -30,7 +30,7 @@ function draw() {
     fill('blue')
     text('Platformer Project', width/2, height/2);
     textSize(50);
-    text('By Emily Saloma', width/2, (height/2) - 100;
+    text('By Emily Saloma', width/2, (height/2) + 100);
 
   } else if (slide == 2) {
     textAlign(LEFT);
@@ -61,21 +61,6 @@ function draw() {
     }
 }
 
-function mousePressed() {
-  if (mouseX > x && mouseX < x + w &&
-      mouseY > y && mouseY < y + h) {
-    if (slide < slidesTotal) {
-      slide++;
-    }
-  }
-
-  if (mouseX > a && mouseX < a + w &&
-      mouseY > b && mouseY < b + h) {
-    if (slide > 1) {
-          slide--;
-    }
-  }
-
 
 function button(x, y, displayText) {
   
@@ -97,5 +82,21 @@ function button(x, y, displayText) {
     textSize(25);
     text(displayText, x, y, w, h);
 }
+
+function mousePressed() {
+  if (mouseX > x && mouseX < x + w &&
+      mouseY > y && mouseY < y + h) {
+    if (slide < slidesTotal) {
+      slide++;
+    }
+  }
+
+  if (mouseX > a && mouseX < a + w &&
+      mouseY > b && mouseY < b + h) {
+    if (slide > 1) {
+          slide--;
+    }
+  }
+
 }
 }
