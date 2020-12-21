@@ -1,3 +1,12 @@
+// Final Project
+
+
+//loads sound
+function preload() {
+    Jump = loadSound('jump.wav')
+}
+
+
 // for moving clouds
     var cloud1;
     var cloud2;
@@ -11,10 +20,10 @@
             
           // player's starting width and height
             playerWidth = 30
-            playerHeight = height - 69.85
+            playerHeight = height - 69
     
           // moving platform starting point
-            platformHeight = height - 14.85
+            platformHeight = height - 14
     
           // background color
             r = 0
@@ -34,12 +43,12 @@
             
             // makes platforms with grass on it
             blocks(0, height - 30)
-            blocks(99.9, height - 30)
-            blocks(299.7, height - 30)
-            blocks(499.8, height - 30)
+            blocks(99, height - 30)
+            blocks(299, height - 30)
+            blocks(499, height - 30)
           
             //displays spikes
-            spikes(199.8, height)
+            spikes(199, height)
           
             //displays sun
             sun()
@@ -66,8 +75,8 @@
             
             fill("brown")
             stroke("brown")
-            rect(499.7, height/3, width, height-64.84)
-            blocks(498.7, height/3.2)
+            rect(499, height/3, width, height-64)
+            blocks(498, height/3)
             
             //create flag
             stroke(0)
@@ -122,35 +131,35 @@
           // player will not be able to move out of the left side or max height
             if (playerWidth < 0) {
               playerWidth = 1
-              playerHeight = height - 64.85
+              playerHeight = height - 64
             }
             
             //once player reaches spikes, player will fall into them
             
-            if (playerWidth >= 199.8 && playerWidth <= 299.7) {
+            if (playerWidth >= 199 && playerWidth <= 299) {
                 playerHeight += 3
             }
             
                 // if player height is below the dirt platform, then they lose a life and restart at the starting point
-            if (playerHeight >= height-55.85) {
+            if (playerHeight >= height-55) {
                 playerLives.splice(0,1)
                 playerWidth = 30
-                playerHeight = height - 64.85
+                playerHeight = height - 64
             }
           
                   
           // not sure, but if removed jump function does not work
-            if (playerHeight <= height - 69.85) {
+            if (playerHeight <= height - 69) {
                 playerHeight += 5
             }
-            if (playerHeight <= height - 265.85) {
+            if (playerHeight <= height - 265) {
                 playerHeight += 200
             }
             
                   
           // once player reaches the top of the mountain, their height is fixed to the mountain height
-            if (playerWidth >= 499.7) {
-                playerHeight = (height/3)-45.5
+            if (playerWidth >= 499) {
+                playerHeight = (height/3)-45
             }
           
           // "you lose" appears once player loses their lives
@@ -174,6 +183,7 @@
         // jump function (work in progess)
        function keyPressed() {
          if (key == "w" || key == "W") {
+           Jump.play();
            playerHeight -= 200
          }
        }
@@ -184,15 +194,15 @@
             fill("brown")
             stroke("brown")
             strokeWeight(1)
-            rect(w, h, 99.9, 30)
+            rect(w, h, 99, 30)
             fill("green")
             strokeWeight(2)
             stroke("green")
             
             //creates grass
-            triangle(w, h+1, w+33.3, h+1, w+16.4, h+24.85)
-            triangle(w+33.3, h+1, w+66.6, h+1, w+49.7, h+24.85)
-            triangle(w+66.6, h+1, w+99.9, h+1, w+83, h+24.85)
+            triangle(w, h+1, w+33, h+1, w+16, h+24)
+            triangle(w+33, h+1, w+66, h+1, w+49, h+24)
+            triangle(w+66, h+1, w+99, h+1, w+83, h+24)
         }
         
         
@@ -241,7 +251,7 @@
             //creates moving platform
             stroke(251, 251, 216)
             fill(251, 251, 216)
-            rect(399.6, platformHeight, 99.9, 30)
+            rect(399, platformHeight, 99, 30)
             platformHeight -= 5
           
            //if platforms reach the top of screen, reset to default height
@@ -253,8 +263,8 @@
         function spikes(spikeWidth, spikeHeight) {
             fill(0)
             stroke(0)
-            triangle(spikeWidth, spikeHeight+1, spikeWidth+33.3, spikeHeight+1, spikeWidth+16.4, spikeHeight-24.85)
-            triangle(spikeWidth+33.3, spikeHeight+1, spikeWidth+66.6, spikeHeight+1, spikeWidth+49.7, spikeHeight-24.85)
-            triangle(spikeWidth+66.6, spikeHeight+1, spikeWidth+99.9, spikeHeight+1, spikeWidth+83, spikeHeight-24.85)
+            triangle(spikeWidth, spikeHeight+1, spikeWidth+33, spikeHeight+1, spikeWidth+16, spikeHeight-24)
+            triangle(spikeWidth+33, spikeHeight+1, spikeWidth+66, spikeHeight+1, spikeWidth+49, spikeHeight-24)
+            triangle(spikeWidth+66, spikeHeight+1, spikeWidth+99, spikeHeight+1, spikeWidth+83, spikeHeight-24)
             
        }
