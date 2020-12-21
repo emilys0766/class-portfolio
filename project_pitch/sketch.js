@@ -67,15 +67,14 @@ function button(x, y, displayText) {
     fill('white');
     if (mouseX > buttonx && mouseX < buttonx + w &&
       mouseY > buttony && mouseY < buttony + h) {
-      fill(45);
-
+        fill(45);
         if (mouseIsPressed) {
           stroke(45);
         }
     }
 
-  strokeWeight(4);
-  rect(x, y, w, h, 15);
+    strokeWeight(4);
+    rect(x, y, w, h, 15);
 
     textAlign(CENTER,CENTER);
     fill('black');
@@ -88,14 +87,14 @@ function mousePressed() {
       mouseY > buttony && mouseY < buttony + h) {
     if (slide < slidesTotal) {
       slide++;
+
+      if (mouseX > a && mouseX < a + w &&
+       mouseY > b && mouseY < b + h) {
+         if (slide > 1) {
+            slide--;
     }
   }
-
-  if (mouseX > a && mouseX < a + w &&
-      mouseY > b && mouseY < b + h) {
-    if (slide > 1) {
-          slide--;
     }
   }
-
+}
 }
