@@ -8,7 +8,7 @@ var buttonx = 1000 - 160;
 var buttony = 700 - 110;
 
 var a = 20;
-var b = y;
+var b = buttony;
 
 var platformStill;
 
