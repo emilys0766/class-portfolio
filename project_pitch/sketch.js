@@ -47,7 +47,7 @@ function draw() {
     fill('blue');
     textSize(30);
 
-    text('The user can jump with the use of the W key button, and move with the left and right arrow keys.', 50, 100, width - 200;
+    text('The user can jump with the use of the W key button, and move with the left and right arrow keys.', 50, 100, width - 200);
     text('The goal of the plaformer would be to reach the red flag before your lives run out.', 50, 100, width - 250);
     
     image(platformStill, 160, 190, platformStill.width / 2, platformStill.height / 2);
