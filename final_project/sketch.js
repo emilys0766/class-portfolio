@@ -23,6 +23,7 @@ function preload() {
             playerHeight = height - 69
     
           // moving platform starting point
+            platformX = 399
             platformHeight = height - 14
     
           // background color
@@ -156,10 +157,19 @@ function preload() {
                 playerHeight += 200
             }
             
-                  
+            //once player reaches platform
+
+            if (playerWidth > platformX && playerWidth < 499) {
+                if (playerHeight > platformHeight) {
+                    playerHeight += 5
+                } else if (playerWidth <= platformHeight) {
+                    playerHeight -= 20
+                }
+            }
+
           // once player reaches the top of the mountain, their height is fixed to the mountain height
             if (playerWidth >= 499) {
-                playerHeight = (height/3)-45
+                playerHeight = (height/3)-35
             }
           
           // "you lose" appears once player loses their lives
@@ -251,12 +261,12 @@ function preload() {
             //creates moving platform
             stroke(251, 251, 216)
             fill(251, 251, 216)
-            rect(399, platformHeight, 99, 30)
+            rect(platformX, platformHeight, 99, 30)
             platformHeight -= 5
           
            //if platforms reach the top of screen, reset to default height
             if (platformHeight <= 0) {
-                platformHeight = height - 30
+                platformHeight = height - 20
             }
         }
         
