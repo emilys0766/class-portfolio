@@ -1,4 +1,4 @@
-var slide = 1;
+var slides = 1;
 var slidesTotal = 3;
 
 var w = 100;
@@ -24,7 +24,7 @@ function setup() {
 function draw() {
   background('grey');
 
-  if (slide == 1) {
+  if (slides == 1) {
     textAlign(CENTER, CENTER);
     textSize(100);
     fill('blue')
@@ -32,7 +32,7 @@ function draw() {
     textSize(50);
     text('By Emily Saloma', width/2, (height/2) + 100);
 
-  } else if (slide == 2) {
+  } else if (slides == 2) {
     textAlign(LEFT);
     fill('blue');
     textSize(30);
@@ -42,7 +42,7 @@ function draw() {
     text('I thought fixing this project could be a good way towards achieving that goal.,', 50 , 100, width - 300);
 
 
-  } else if (slide == 3) {
+  } else if (slides == 3) {
     textAlign(LEFT);
     fill('blue');
     textSize(30);
@@ -53,11 +53,11 @@ function draw() {
     image(platformStill, 160, 190, platformStill.width / 2, platformStill.height / 2);
 }
 
-    if (slide < slidesTotal) {
+    if (slides < slidesTotal) {
         button(buttonx, buttony, "Next Slide");
     }
 
-    if (slide > 1) {
+    if (slides > 1) {
         button(a, b, "Back Slide");
     }
 
@@ -86,17 +86,16 @@ function button(x, y, displayText) {
 function mousePressed() {
   if (mouseX > buttonx && mouseX < buttonx + w &&
       mouseY > buttony && mouseY < buttony + h) {
-    if (slide < slidesTotal) {
-      slide++;
+    if (slides < slidesTotal) {
+      slides++;
     }
   }
 
   if (mouseX > a && mouseX < a + w &&
       mouseY > b && mouseY < b + h) {
-    if (slide > 1) {
-          slide--;
+    if (slides > 1) {
+          slides--;
     }
   }
 
-}
 }
