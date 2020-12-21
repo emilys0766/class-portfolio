@@ -26,11 +26,11 @@ function draw() {
 
   if (slide == 1) {
     textAlign(CENTER, CENTER);
-    textSize(50);
+    textSize(100);
     fill('blue')
     text('Platformer Project', width/2, height/2);
-    textSize(30);
-    text('By Emily Saloma', width/2, height/2);
+    textSize(50);
+    text('By Emily Saloma', width/2, (height/2) - 100;
 
   } else if (slide == 2) {
     textAlign(LEFT);
