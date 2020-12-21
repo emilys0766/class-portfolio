@@ -2,10 +2,10 @@ var slide = 1;
 var slidesTotal = 3;
 
 var w = 100;
-var h = 30;
+var h = 60;
 
-var x = 1000 - 120;
-var y = 700 - 50;
+var buttonx = 1000 - 160;
+var buttony = 700 - 110;
 
 var a = 20;
 var b = y;
@@ -51,26 +51,26 @@ function draw() {
     text('The goal of the plaformer would be to reach the red flag before your lives run out.', 50, 100, width - 250);
     
     image(platformStill, 160, 190, platformStill.width / 2, platformStill.height / 2);
+}
 
     if (slide < slidesTotal) {
-        button(x, y, "Next Slide");
+        button(buttonx, buttony, "Next Slide");
     }
 
     if (slide > 1) {
         button(a, b, "Back Slide");
     }
-}
 
 
 function button(x, y, displayText) {
   
-    fill('yellow');
-    if (mouseX > x && mouseX < x + w &&
-      mouseY > y && mouseY < y + h) {
-      fill(51);
+    fill('white');
+    if (mouseX > buttonx && mouseX < buttonx + w &&
+      mouseY > buttony && mouseY < buttony + h) {
+      fill(45);
 
         if (mouseIsPressed) {
-          stroke(51);
+          stroke(45);
         }
     }
 
@@ -80,12 +80,12 @@ function button(x, y, displayText) {
     textAlign(CENTER,CENTER);
     fill('black');
     textSize(25);
-    text(displayText, x, y, w, h);
+    text(displayText, buttonx, buttony, w, h);
 }
 
 function mousePressed() {
-  if (mouseX > x && mouseX < x + w &&
-      mouseY > y && mouseY < y + h) {
+  if (mouseX > buttonx && mouseX < buttonx + w &&
+      mouseY > buttony && mouseY < buttony + h) {
     if (slide < slidesTotal) {
       slide++;
     }
